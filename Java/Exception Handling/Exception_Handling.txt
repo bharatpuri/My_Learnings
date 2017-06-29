@@ -1,0 +1,13 @@
+An unexpected unwanted event that disturbs normal flow of the program is called exception.
+Example: Tyre puncher exception, sleeping exception and fileNotFound exception etc.  
+It is highly recommended to handle exceptions and the main objective of exception is grace full termination of the program.
+
+Exception handling doesn’t mean repairing we have to provide alternative way to continue rest of the program normally is concept of exception handling.
+Example: Our program requirement is to read data from remote file locating at London get run time if London file is not available our program should not be terminated abnormally we have to provide some local file  to continue rest of the program normally this way of defining alternative is nothing but exception handling.
+Try{
+read data form remote file locating at London
+}
+Catch(Exception e) {
+Use local file and continue rest of the program normally.
+}
+

@@ -1,0 +1,33 @@
+# Basic keywords that are used in Exception handling:
+
+Try - To maintain risky code.
+Catch - To maintain exception handling code.
+Finally - To maintain clean up code.
+Throw - To hand over our created exception object to the JVM manually.
+Throws - To delegate the responsibility of exception handling to the caller.
+
+# Customised or user defined exceptions:
+Sometime to meet programing requirements we can define our own exceptions such type of exception are called customised or user define exceptions.
+Example: toYoungException, toOldException and insufficient founds exception etc.
+------------------------------------------------------
+Declare the custom exception:
+	public class HandleException extends Exception {
+		public HandleException(String message) {
+			super(message);
+		}
+	}
+
+# Used custom exception:
+	public class Demo {
+		public static void main(String[] args) {
+			if (age > 60){
+				throw new HandleException("Age is not valid. Please provide valid age");
+			}
+			else 
+			System.out.Println("Success")
+		}
+	}
+------------------------------------------------------
+Note 1 : throw keyword is best suitable for user define or customised exception but not for predefined exceptions. 
+Note 2 : It is highly recommended to define customised exception as unchecked that is we have extends Runtime exception but not exception.
+Note 3 :  super(message): To make description available to default exception handler.
