@@ -1,0 +1,76 @@
+
+##### Identifiers:
+
+A name in java program is called identifier which can be used for identification purpose, it can be method name or variable name class name or label name. 
+Class Test {
+Public static void main (String[] args){
+Int a =10; 
+	}
+}
+
+Rules for defining java identifiers 
+The only allowed characters in java identifiers are: 
+A to z
+A to Z
+0 to 9
+ $ and _
+
+-> If we are using any other character we will get compile time error.
+	Example Total# this is incorrect.
+	
+-> Identifiers can’t start with digit 
+	example: total123 is valid but 123total is invalid.
+	
+-> Java identifiers are case sensitive off course java language itself treat as case sensitive programing language.
+-> There is no length limit for java identifiers but it is not recommended to take to lengthy identifiers.
+-> We can’t use reserved words as identifiers 
+	Example int x = 10 this is valid, int if = 20 is invalid. 
+
+
+-> All predefine java class name and interface names we can use as identifiers.  
+-> Even though it is valid but it is not a good programing practice because it reduces readability and creates and confusion.
+
+##### Reserved Words:
+
+-> In java some words are reserved to represent some meaning or functionality such types words are called reserved words.
+-> Reserved literals:  true, false and null.
+-> True false use for Boolean data types.
+-> Null is default value for object reference.
+-> Unused keywords are 2:  goto and const.
+-> Goto: Usages of goto created several problems in old languages hence some people band this keyword in java.
+-> Goto and const are unused keywords and if we are trying to use we will get compile time error.
+-> Const: use final instead of const. 
+-> Used keywords are 48: 
+-> Keywords for data types:  byte, short, long, int, float, double, Boolean and char.
+-> Keyword for flow control: if, else, switch, case, default, while, do, for, break, continue and return.
+-> Keywords for modifiers: public, private, protected, static, final, abstract, synchronised, native, strictfb, transit and volatile.
+-> Keywords for exception handling: try, catch, finally, throw, throws and allert.
+-> Keywords for class: class, interface, extends, implements, package and import, 
+-> Keywords for objects: new, instanceof, super and this.
+-> Void return is also keyword.  In java return type is mandatory if a method won’t return anything then we have to declare that method with void return type.
+-> But is c language return type is options and default return type is int.
+-> Unused keywords 
+-> Enum keyword: (java 1.5)
+-> We can use enum to define a group of name Constance.
+		Example: enum Month{ JAN, FEB, MARCH…DEC;}
+		
+-> All 53 words reserved in java contain only lower case alphabets symbols.
+-> In java we have only new keyword and there is no delete keyword because distraction of use less object is responsibly of garbage collector.
+-> The following are new keywords in java.
+-> strictfb 1.2 version
+-> allert 1.4 version
+-> enum 1.5 version.
+
+
+####### Data Types:
+In java every variable and every expression has some type.
+Each and every data type clearly defines.
+Every assignment should be checked by compiler for type compatibility because above reason we can conclude java language is strongly typed programing language. 
+Java is not considered as pure object oriented programing language because severs OOPS features are not satisfied in java like operated overloading and multiple inheritance etc.
+Moreover we are depending on primitive data types which are non-objects.
+Except Boolean and char remaining data types are consider as signed data types because we can represent both positive and negative numbers.l
+
+
+
+
+ 
