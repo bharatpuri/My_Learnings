@@ -1,0 +1,83 @@
+Types of Variables:
+=======================================================
+Division one:
+
+	Based on type of value represented by variable all variable are divided into two types:
+	1.	Primitive variables: can be used to repressive primitive values.
+	Example int a =10;
+	2.	Reference Variables: can be used to refer objects.
+	Example: Student s = new Student();
+Division two:
+
+	Based on position on declaration and behaviour all variable are divided into three type:
+	1.	Instance variable 
+	2.	Static variable 
+	3.	Local variable
+
+================================================================
+Instance Variable:
+	-	IF the value of a variable is varied from object to object such type of variable are called instance variables. For every object a spate copy of variable will be created.
+	-	Instance should be declared within the class directly but outside of Method, constructor and block.
+	-	Instance will be created at the time of object creation and destroyed at the time of object distraction hence the scope instance variable is exactly same as the scope of object.
+	-	Instance variable will be stored in the heap memory as part of object.
+	-	We can’t access instance variable directly from static area but we can access by using object reference. But we can access instance variable directly from instance area.
+	-	Class Test{
+	Int a = 10;
+	Public static void main(String[] args){
+	Sop(x); // compile time error.
+	Test  t = new Test();
+	Sop(t.x); Valid output will be 10.
+	}
+	Public void m1(){
+	Sop(x) //valid.
+	}
+	}
+	-	For instance variables JVM will always provide default values and we are not required initiation explicitly. 
+	-	Sometime instance variable also known as object level variable or attributes.
+
+============================================================
+Static Variables:
+
+	-	If the value of a variable is not varied from object to object then it is not recommend declaring variable as instance variable. We have to declare such type of variable at class level by using STATIC modifier.
+	-	In the case of instance variables for every object a spate copy will be created but in the case of STATIC variable a single copy will be created at the class level and shared by every object of the class.
+	-	STATIC variable should be declared within the class directly but outside any method, constructor and block.
+	-	STATIC variables will be created at the time of class loading and destroyed at the time of class unloading hence scope of STATIC variable is exactly same as scope .class file.
+	-	STATIC variable will be stored in Method area.
+	-	We can access STATIC variable either reference or by class name but recommended to use class name.
+	-	Within the same class it is not required class name and we can access directly.
+	-	We can access STATIC variable directly from both instance and STATIC area.
+	-	For STATIC variable JVM will provide default value and we are not required perform initialisation explicitly.
+	-	STATIC variable also known as class level or fields.
+	public class Demo {
+		static int a = 10;
+		int b = 20;
+
+		public static void main(String[] args) throws HandleException {
+			Demo d = new Demo();
+			d.a = 111;
+			d.b = 222;
+			Demo d2 = new Demo();
+			System.out.println(d2.a);	
+			System.out.println(d2.b);
+			
+		}
+	} Output will be 111 and 20.
+
+
+===================================================================
+Local Variable:
+
+	-	Sometimes to meet temporary requirement of the programmer we can declare variable inside a method or block or constructor such type of variables are called local variables or temporary variables or stack variable or automatic variables.
+	-	Local variable will be stored inside the stack memory.
+	-	Local variable will be created while executing the block and which we declared it.
+	Once block execution completes automatically local variable destroy hence the scope of local variable is the block in which we declared it.
+	-	For local variable JVM won’t provide default values compulsory we should perform initialisation explicitly before using that variable that is if we are not using then it is not required to perform initialisation.
+	
+	Note: It is not recommend performing initiation for local variables inside logical blocks because there is not guaranty for the execution of these blocks always at runtime.
+	Note: It is highly recommend performing initialisation for local variable at the time of declaration at least with default values. 
+	Note: The only applicable modifier for local variable is Final by mistake if you are trying to apply any other modifier then we will get compile time error.
+	Note: If we are not declaring with any modifier then by default it is default but this rule is applicable only for instance and static variable but not for local variables.
+	Conclusions: 
+	-	For instance and static variables JVM will provide default values and we are required to perform initialisation explicitly but for local variables JVM won’t provide default values compulsory we should perform initialisation explicitly before using that variable.
+	-	Instance and static variables can be accessed by multiple threads simultaneously   and hence these are not thread safe but in the case of local variable every thread a separate copy will be created and hence local variable ate thread safe.
+	-	Every variable in java should be either instance or static or local.

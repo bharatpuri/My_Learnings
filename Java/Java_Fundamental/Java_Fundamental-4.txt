@@ -1,0 +1,79 @@
+Var-arg Methods: (variable number of argument methods)
+====================================================
+	Until 1.4 versions we can’t declare a method with variable number of arguments if there is a change in number of arguments compulsory we should new method it increases length of the code and reduces readability. To overcome this problem some people introduce var-arg method in 1.5 versions according to this we can declare a method which can take variable number of arguments such type of methods are called va-arg methods.
+	We can declare a var-arg method as follows:
+		M1(int…x){
+		}
+		M1(10);
+		M2(23,45,56);
+	We can call this method by passing any number of int values including 0 numbers.
+	Internaly var-arg parameter will be converted into one dimensional array hence within the var-arg method we can deferential values by using index.
+		public class Demo {
+
+			public void sum(int...a){
+				int total = 0;
+				for (int x : a){
+					total = total + x;
+				}
+				System.out.println(total);
+			
+			}
+			public static void main(String[] args) throws HandleException {
+				Demo d = new Demo();
+				d.sum(23,34);
+				d.sum(23,34,54);
+				
+			}
+		}
+Output: 57 and 111
+Case1: which are the following var-arg method sdeclarations?
+M1(int…  x); // valid
+M1(int  ...x); //valid
+M1(int…x); // valid
+M1(int  x…); //invalid
+M1(int.  .. x);//invalid
+Case2: we can mix var-arg parameter with normal parmeter 
+M1(int a , int… x); //Valid
+M1(String s , double… y); // Valid
+Case3: If we mix normal parameter with var-arg then var-arg parameter should be last parameter.
+M1(double… y , String s ); //invalid
+Case4: inside var-arg method we can take only one var-arg parameter and we can’t take more than one var-arg parameter.
+M1(int… x, double… d); // invalid
+Case4: inside class we can’t declare var-arg method and corresponding one dimensional array method simultaneously otherwise we will get compile time error.
+Class Test{
+Public void m1(int… x){
+}
+Public int m1(int[] x){
+}
+}
+//Compile time error we will get.
+Case5: 
+public class Demo {
+	public static void sum(int...a){
+
+		System.out.println("Var-arg method");
+	}
+	public static void sum(int a){
+
+		System.out.println("normal method");
+	}
+	public static void main(String[] args) throws HandleException {
+		sum(); //Var-arg method
+		sum(12,23); //Var-arg method
+		sum(23);//Normal method
+	}
+}
+In general var-arg method will get list priority that is if no other method match then only var-arg method will get the chance, it is exactly same default case inside switch.
+
+Case6: equivalence between var-arg parameter and one dimensional array:
+-	Wherever one dimensional array present we can replace with var-arg parameter
+M1(int[]  x )  m1(int…x)
+Example: Main(String[] args)  main(String…args)
+-	Wherever var-arg parameter present we can’t replace with one dimensional array.
+Example: m1(int…x)m1(int[] s)
+
+-	M1 (int…x) we can call this method by passing a group of int values and x will become one dimensional array.
+-	M1(int[]… x) we can call this method by passing a group of one dimensional int array and x will become two dimensional int array. 
+-	
+
+

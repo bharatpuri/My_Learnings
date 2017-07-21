@@ -1,0 +1,244 @@
+
+===========Array:============================
+
+Introduction:
+	An array is an indexed collection of fixed number of homogeneous elements.
+	
+	The main advantages of array are we can represent huge number of values by using single variable so that readability of the code will improved. 
+	
+	But the main disadvantage is fixed in size once we create an array there is no change increase and decrease the based on our requirement hence to use array concept compulsory we should know the size in advance, which may not possible always.
+
+=============================================
+Declaration:
+
+One dimensional array declaration:
+	Int  []x;
+	Int  x[];
+	Int[] x; - This is the recommended because name of variable name is clearly separated firm type.
+	At the time of declaration we can’t specify the size otherwise compile will give the error.
+	Example int [4] x; it is invalid.
+Two dimensional array declaration:
+	Int  x[][]  x;
+	Int  x  [][]x;
+	Int  x  x[][];
+	Int  x[]   []x;
+	Int  x[]   x[];
+	Int  x   []x[];
+	Above all the declarations are correct.
+	Which are the following is the valid declaration:
+	Int []  a,b;  a->1 and b->1
+	Int[] a[],b;  a->2 and b->1
+	Int[]  a[],b[]; a->2 and b->2	
+	Int[]   []a,b;  a->2 and b->2
+	Int []   []a,b[] ; a->2 and b->3
+	Int[]  []a,[]b; compile time error.
+	If we want to specify dimension before the variable facility is applicable only for variable in declaration
+	If we are trying to applying for remaining variables we will get compile time error. 
+Three array declaration:
+	Int [][][]  a; 
+	Int  [][][]a;
+	Int[]  [][]a;
+	Int[]  a[][];
+	Int[]  []a[];
+	Int[][]  []a;
+	Int[][]  a[];
+	Int  [][]a[];
+	Int  []a[][];
+	
+============================================================
+Array creation:
+
+	Every array in java is an object only hence we can array’s by using new operator
+	Int[]  a = new int[3];
+	s.o.p(a.getClass().getName()); output is [I ----if it is two dimensional array then it will like [[I
+	For every array type corresponding classes are available and these classes are part of java language and available to the program level.
+	Array type					corresponding classes
+	Int[]						[I	
+	Int[][]						[[I
+	Double[]					[D
+	Short[]						[S
+	Byte[]						[B
+	Boolean[]					[Z
+	At the time of array creation compulsory we should specify the size otherwise we will get compile time error. 
+	Example: int[]  x = new int[]; // invalid
+	Int[]  a = new int[5]; //valid
+	It is a legal to have an array with size zero0 in java.
+	Example: int[] a = new int[0];  //valid
+	If we are trying to specify array size with some negative int value then we will get runtime exception saying negative array size exception.
+	Example: int[]  a = new int[-3]; //runtime exception with negative size of array
+	To specify array size the allowed data types are byte short int if we are trying to specify any other type we will get compile time error:
+	Example: int[]  a = new int[10]; //valid
+	Int[]  a  = new  int[‘a’];  //valid
+	Byte a = 10;
+	Int[] a  = new int[a]; //valid
+	Short s = 10;
+	Int[] a = new int[s];  // valid
+	Int[]  a = new int[10L];  // invalid
+	Note: The maximum allowed array size in java is 2147483647 which is the maximum value of int data type.
+	Int a[]  a = new int[2148472647];
+	Even in the first case we may get runtime exception if sufficient heap memory not available.
+
+===================================================================
+Two dimensional array creation:
+	In java two dimensional array not implemented by using matrix style some people followed array of array approach for multi-dimensional array creation. The main advantage is this approach is memory utilisation will be improved.
+	Example 1: int[][]  x = new int[2][];
+	X[0]= new int[2];
+	X[1] = new int[3];
+	Example 2: int[][][]  x = new int[2][][];
+	Int[0] = new int[3][];
+	Int[0][0] = new int[1];
+	Int[0][1] = new int[2];
+	Int[0][2] = new int[3];
+	Int[1] = new int[2][2];
+	
+Array initialization:
+	Once we create an array every element by default initialise with default values.
+	Int[]  a = new int[3];
+	Sop(a); output is like [I@123
+	Sop(a[1]); // 0
+	Whenever we are trying print any reference variable internally two string method will be called which is implemented by default to return the string in the following form.
+	[I@hashcode-hexadecimal form
+	Example 1: 
+	Int[][]  a = new int[2][2];
+	Sop(a);//[[I@1234
+	Sop(a[0]);//[I@2344
+	Sop(a[0][0]);//0
+	Example 2:
+	Int[][]  a = new int[2][];
+	Sop(a);//[[I@1234
+	Sop(a[0]);//null
+	Sop(a[0][0]);//Runtime exception null pointer
+	Note: If we are trying to perform any operation on null then we will get run time saying null pointer exception.
+	Once we create an array every array element by default initialised with default values if we are not satisfied with default values then we can override these values with our customised values. 
+	Int[] a = new int[3];
+	A[0]=10;
+	A[1]=20;
+	A[2]=30;
+	Note: if we are trying to access array element with out of range index (either positive values or negative values) then we will get run time exception saying array index out of bound exception.
+==============================================
+Array Declaration creation and initialization in a single line:
+
+	We can declare create and initialise an array in a single line (shot cut representation)
+	Int[] a = {1, 2, 3};
+	char[] a = {‘d’, ‘e’, ‘a’};
+	String[] a = {“abc”, “pqr”, “xyz”};
+	We can use this shot cut for multi-dimensional array also 
+	Int[][] a = {{12,13}, {20, 30, 40}};
+
+===============================================
+Length vs length ():
+
+	Length is a final variable applicable for array.
+	Length variable represent the size of the array. 
+	Int[] a = new int[6];
+	Sop(a.length()); // Compile time error
+	Sop(a.length);//output is 6
+	String s = “bharat”;
+	Sop(s.length);//cannot find symbol variable length location class
+	Sop(s.length()); 6
+	
+	Length() method is final applicable for string objects
+	Length() method returns number of character present in string. 
+	Length variable applicable for array’s but not for string objects.
+	Length() method applicable for String objects but not for arrays.
+	String[]  a = new {“C”, “B”, “A”};
+	Sop(a.length); //3
+	SOP(a.length()); Compile time error.
+	SOP(a[0].length);//Compile time error
+	SOP(a[0].length()); 1
+	In multi-dimensional array length variable represented only base size but not total size. 
+	Int[][] a=new int[6][3];
+	Sop(a.length); 6
+	Sop(a[0].length); 3
+	There is no direct way to specify  total length of multi-dimensional array but indirectly we can find as follows:
+	Sop(a[0].length+a[1].length+a[2]……..);
+===================================================
+Anonymous array:
+
+	Sometimes we can declare an array without name such type of nameless are called anonymous array. The main purpose of anonymous is just for instant use (one time usage).
+	We can create anonymous array as follows:
+	New  int[] {10,20,30};
+	While creating anonymous we can’t specify the size otherwise we will get compile time error.
+	New int[2]{12,20}; Invalid
+	New int[]{12,20}; valid 
+	We can create multi-dimensional anonymous array also:
+	Int[][]  a = new {{1,2}, {4,5}};
+	Based on our requirement we can give the name for anonymous array then it is no longer anonymous array.
+	Int[] x = new int[]{10, 20, 30}; 
+	Class test {
+	Public void main(String() args){
+	Sum(new int[]{10,20,30});
+	}
+	Public void sum(int[] a){
+	Int total = 0;
+	For(int x : a){
+	Total =total+x;}
+	Sop(total);
+	}
+	}
+	In the above example just to call some method we required an array but after completing some method call we are not using that array any more hence for this one time required anonymous array is best choice.
+=================================================
+Array element assignments:
+
+	Case1: in the case of primitive array as array elements we can provide any type which can be implicitly promoted to declared type.
+	Int[] x = new int[5];
+	X[0] = 10;
+	X[1] = ‘a’;
+	Byte b = 20;
+	X[2] = b;
+	Short s = 30;
+	X[3] = s;
+	X[4] = 10L// compile time error.
+	Example2:
+	In the case of float type array the allowed data types are byte, short, char, int, long and float.
+	Case2:
+	In case of object type array as array elements we can provide either declare type objects or its child class objects.
+	Object[]  a = new object[];
+	a[0] = new object();
+	a[1] = new String(“abc”);
+	a[2] = new Integer (10);
+
+	Number[] n = new Number[10]
+	n[0] = new Interger(10);
+	n[1] = new double(10.5);
+	n2[2]  = new String(“abc”); // compile time error: incompatible types found.
+	For interface array as array elements its implementations class are allowed.
+	Runnable[] r = new Runable[10];
+	r[0] = new thread();
+	r[1] = new String(“abc”);// Compile time error incompatible types found.
+==============================================
+Array variable assignments:
+
+	Case1: Element level promotions are not applicable at array level.
+	Char element can be promoted to the int type whereas char[] array cannot be promoted to int[] array.
+	Example: int[] x = {1, 2, 3, 4 ,5};
+	Char[] ch =  {‘a’, ‘b’, ‘c’, ‘d’};
+	Int[]  b  =  x;
+	Int[]  c  =  x; // invalid 
+	Which are the following promotions are performed automatically:
+	Char   int // valid
+	Char[]   int[] // invalid
+	Int  double // valid
+	Int[]  double[] //invalid
+	Float    int// invalid
+	Float[]    int[]// invalid 
+	String  object //valid
+	String[]  object[] //valid
+	But in the case object type array child class type array can be promoted to parent class array.
+	String[]  s  =  {‘a’, ‘b’, ‘c’};
+	Object[]  o = s; //Valid 
+
+	Case2:
+	Whenever we are assigning one array to another array internal elements are not copied just reference variable will reassigned.
+	Int[] a ={10,20,30,40,50};
+	Int[]  b  = {54,53};
+	a = b; // valid
+	b = a; // Valid
+	Case3:  
+	Wherever we are assigning one array to another array the dimensions must matched.
+	In the place of one dimensional int array we should provide one dimensional array only. If we are trying to provide any other dimensional then we will get compile time error.
+	Int[][]  a = new int[2][];
+	A[0] = new int[4][3]; // compile time error
+	a[0] =10; Compile time error
+	a[0] = new int[2] // valid
+	Whenever we are assigning one array to another array both dimensional and types must be match but sizes are required to match.

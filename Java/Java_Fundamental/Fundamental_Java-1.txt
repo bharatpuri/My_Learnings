@@ -1,19 +1,19 @@
 
-##### Identifiers:
+===========Identifiers:============================
 
-A name in java program is called identifier which can be used for identification purpose, it can be method name or variable name class name or label name. 
-Class Test {
-Public static void main (String[] args){
-Int a =10; 
+	A name in java program is called identifier which can be used for identification purpose, it can be method name or variable name class name or label name. 
+	Class Test {
+	Public static void main (String[] args){
+	Int a =10; 
 	}
 }
 
-Rules for defining java identifiers 
-The only allowed characters in java identifiers are: 
-A to z
-A to Z
-0 to 9
- $ and _
+	Rules for defining java identifiers 
+	The only allowed characters in java identifiers are: 
+	A to z
+	A to Z
+	0 to 9
+	 $ and _
 
 -> If we are using any other character we will get compile time error.
 	Example Total# this is incorrect.
@@ -30,7 +30,7 @@ A to Z
 -> All predefine java class name and interface names we can use as identifiers.  
 -> Even though it is valid but it is not a good programing practice because it reduces readability and creates and confusion.
 
-##### Reserved Words:
+=================Reserved Words:=================================
 
 -> In java some words are reserved to represent some meaning or functionality such types words are called reserved words.
 -> Reserved literals:  true, false and null.
@@ -62,7 +62,7 @@ A to Z
 -> enum 1.5 version.
 
 
-####### Data Types:
+============Data Types:============================================================
 In java every variable and every expression has some type.
 Each and every data type clearly defines.
 Every assignment should be checked by compiler for type compatibility because above reason we can conclude java language is strongly typed programing language. 
@@ -70,7 +70,134 @@ Java is not considered as pure object oriented programing language because sever
 Moreover we are depending on primitive data types which are non-objects.
 Except Boolean and char remaining data types are consider as signed data types because we can represent both positive and negative numbers.l
 
+1. Byte:
+		byte (8 bit) max value 127 min value -128 and range 127 to -128
+	
+2. Short:
+		Short data best use for 16 bit 8085 but these processer are completely outdated hence corresponding shot data type is outdated date type.
 
+3. Integer: 4 byte (32bit) range  
+		The most commonly used data type java is int. size 4 byte (32bit) range -2147483648 to 21474 83647.
 
+4. Long: 
+		Sometimes int may not enough to hold bug values then we should go for long data type
+		Example: the amount distance travel by light in thousand days, to hold this value int may not enough we should go for long data type.
+		Long l =126000*60*60*24*1000
+		The number characters present in a big file may Exide int range hence the return type of length method long but not int.
 
- 
+5. Long:
+	Long 8 byte (64 bit) 
+	
+========Floating point data types===========================================
+1. Float: 
+	If we want 5 to 6 decimal accuracy then we should got for float.
+	Float follow single precession 
+	4 byte
+	Range -3.4e38 to 3.4e38
+	
+2. Double
+	If we want 14 to 15 decimal accuracy then we should go for double.
+	Double follow double precession 
+	8 byte
+	Range -1.7e308 to 1.7e308
+	
+=======Boolean Data type:================
+	Size is not applicable (virtual machine dependent) 
+	Range not applicable (but allowed value us true and false)
+
+=======Char data type:==============
+	Old languages like (c, c++) are asci code based. The number of allowed different asci code are less than or equal to 256. To represent these 356 characters 8 bit are enough hence the size of char in old language is 1 byte.
+	But java is Unicode based the number of different asci character are greater than 256 and less than or equal 65536 to represent these many characters 8bit may not enough compulsory we should go for 16bit hence the size of char is 2 byte. 
+	Size 2byte range 0 to 65536
+	Null is the default value for object reference and we can’t apply for primitive data type. If we are trying to use for primitive then we will get compile time error.
+	
+============Literals: ============
+Any constant value which can be assigning to the variable is called literal.
+Int x = 10; here 10 constant value is literal.
+
+- Integral laterals:
+	Integral data types (byte, short, int and long) we can specify lateral value in the following base.
+	1.	Decimal lateral (base 10) allowed digits are 0 to 9.
+		Int x = 10;
+	2.	Octal form (base 8) allowed digits are 0 t0 7. Lateral value should be prefix with 0.
+		Int x = 010;
+	3.	Hexa decimal: base (16) allowed digits are 0 to 9, 8 to F.
+		For extra digits (a to f) we can use both lower  case and upper case charterers this is one of very few areas where java is not case sensitive.
+		The lateral value should be prefix with 0x or oX
+		Int x = ox10;
+		These are the only possible ways to specify lateral vale for integral data types. 
+		Int x = 10 //Valid
+		Int x = 0786 //invalid
+		Int x = 777; // Valid
+		Int x = oXFace; // Valid
+		Int x = oXBeef; // Valid
+		Int x = oXBeer; // Invalid
+		By default every integral lateral is of int type but we can specify explicitly as long type with small l or capital L.
+		There is not direct way to show byte and shot laterals explicitly but indirectly we can specify.
+		Whenever we assigning integer to the byte variable and its value within the range of byte then compiler treat it automatically as byte lateral similarly shot lateral also.
+		
+- Floating points laterals:
+		By default every folating poit lateral is of double type henvce we cant assign directly to th efoalt variable.
+		But we can specify floating point lateral as float type by with f or F.
+		Float f = 23.456F; // valid 
+		Double d = 123.456; // valid
+		We can specify explicitly floating point as double type with d or D.
+		Double d = 123.456D;
+		We can specify floating laterals only in decimal form and we can’t specify in octal and hexadecimal forms.
+		Double d = 123.456; // valid
+		Double d = 0X123.456 // invalid
+		We can assign integral later directly to floating point variable and that integral lateral can be specify either in decimal or octal or hexadecimal points 
+		Double d = 0786 // Compile time error
+		Double d = 0Xface; // valid
+		We can’t assign floating points lateral integral to types.
+		Double d = 10;
+		Int x 10.0// invalid
+		
+- Boolean Laterals
+	The only allowed values for Boolean data types are true and false
+	
+- Char laterals:
+		We can specify char lateral as single character within single quote.
+		Char ch = ‘a’; //valid 
+		We can specify char lateral which represents uni code value of the character and that integral lateral can we specify either in decimal or octal or hexadecimal forms.  But allowed range is 0 to 65535.
+		Char ch = 97; // valid output as a
+		We can represent char lateral in uni code representation which is nothing but single ‘/xxxx’ 4 digit hexa digit number.
+		Char ch = ‘/u00061’; //valid output is a
+		Every esc character is valid char lateral
+		Char ch = ‘\n’ // valid new line
+		Char ch = ‘\t’; // valid tab
+		Char ch = ‘\m’; // invalid 
+		\n = new line
+		\t = tab
+		\b = back space 
+		\r = carriage return 
+		\f = form feed
+		\’ = single quote 
+		\” = double quote 
+		\\ = back slash 
+- String 
+		Any sequence of characters within double quote is treated as string lateral.
+		Example:  String s = “bharat”;
+		
+===============================================================
+		1.7 version enhancement with respect to laterals
+===============================================================
+1. Binary laterals: 
+	For internal data types until 1.6 versions we can specify lateral value in the following ways:
+	1.	Decimal form 
+	2.	Octal form 
+	3.	Hexa decimal form 
+	But from 1.7 versions onwards we can specify lateral value even in binary form also.
+	Allowed digits are 0 and 1. Lateral value should be prefix with 0b or 0B.
+	Int x = oB1111; // output of x is 15
+	
+2. Usage is under score symbol in numeric laterals from 1.7 versions onward we can use underscore symbol between digits numeric laterals
+	Example double d = 1_233_345._2_3;
+	Double d = 132_233_345._2_3; 
+	The main advantage of this approach is readability of the code will be improved.
+	At time of compilation these underscore symbol will be removed automatically hence after compilation the above lines will becomes.
+	Double d = 1233345.23;
+	Double d = 132233345.23
+	We can use underscore symbol only between digits if we are using any variable we will get compile time errors.
+	8 byte long value we can assign to 4 byte float variable because both are following different memory representation internally.
+	Example float f = 10L; // output is 10.0 
