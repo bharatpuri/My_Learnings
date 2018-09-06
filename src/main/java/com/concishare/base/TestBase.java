@@ -4,6 +4,5 @@ public class TestBase {
 	
 	String  test = null;
 	
-	TestBase testObject = new TestBase();
-
+	
 }
